@@ -4,6 +4,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      /* Use padding instead of margin so that we can easily make the body take up the whole screen. */
+      margin: 0;
+      padding: 8px;
+
+      /* Make the body a flexbox so that we can make the canvas take up the rest of the room vertically after the heading. */
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    canvas {
+      /* Make the canvas grow or shrink as needed to fill all the remaining space. */
+      flex-grow: 1;
+      flex-shrink: 1;
+      align-self: stretch;
+
+      /* By default, the canvas's min-height is the height of the framebuffer, so we need to override that,
+         otherwise it'll be stuck at it's previous size when the browser is made smaller. */
+      min-height: 1px;
+    }
+  </style>
 </head>
 
 <body>
